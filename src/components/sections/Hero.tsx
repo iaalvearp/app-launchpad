@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Download, ChevronRight } from "lucide-react";
 import logoAlpy from "@/assets/logo-alpy.svg";
-import { CTAButton } from "./CTAButton";
-import { CodeBlock } from "./CodeBlock";
+import { CTAButton } from "../CTAButton";
+import { CodeBlock } from "../CodeBlock";
 
 const SAMPLE = `# ALPY · Python 3.11 nativo, offline
 import numpy as np
