@@ -1,0 +1,28 @@
+import { useEffect, useState } from "react";
+
+/** Tracks which section id is currently most visible in the viewport. */
+export const useActiveSection = (ids: string[], rootMargin = "-40% 0px -55% 0px") => {
+  const [active, setActive] = useState<string>("");
+
+  useEffect(() => {
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el);
+
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin, threshold: 0 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [ids, rootMargin]);
+
+  return active;
+};
