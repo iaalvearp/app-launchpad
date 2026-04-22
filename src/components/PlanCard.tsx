@@ -13,6 +13,7 @@ export interface PlanCardProps {
   ctaLabel: string;
   ctaHref: string;
   highlighted?: boolean;
+  popularLabel?: string;
   index?: number;
 }
 
@@ -27,6 +28,7 @@ export const PlanCard = ({
   ctaLabel,
   ctaHref,
   highlighted = false,
+  popularLabel = "Most popular",
   index = 0,
 }: PlanCardProps) => (
   <motion.article
@@ -41,31 +43,31 @@ export const PlanCard = ({
     }`}
   >
     {highlighted && (
-      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-mono uppercase tracking-wider shadow-glow">
-        Más popular
+      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-mono uppercase tracking-wider shadow-glow">
+        {popularLabel}
       </span>
     )}
 
     <div className="flex items-center justify-between mb-5">
       <div>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">{tier}</p>
-        <h3 className="text-2xl font-bold text-foreground mt-1">{name}</h3>
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">{tier}</p>
+        <h3 className="text-xl font-bold text-foreground mt-1 tracking-tight">{name}</h3>
       </div>
-      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center ring-1 ring-primary/20">
-        <Icon className="w-6 h-6 text-primary" />
+      <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center ring-1 ring-primary/20">
+        <Icon className="w-5 h-5 text-primary" />
       </div>
     </div>
 
-    <p className="text-sm text-muted-foreground mb-5 min-h-[40px]">{tagline}</p>
+    <p className="text-xs text-muted-foreground mb-5 min-h-[36px] leading-relaxed">{tagline}</p>
 
     <div className="mb-6 pb-6 border-b border-border/60">
-      <span className="text-4xl font-bold text-foreground">{price}</span>
-      {priceNote && <span className="text-muted-foreground ml-1">{priceNote}</span>}
+      <span className="text-4xl font-bold text-foreground tracking-tight">{price}</span>
+      {priceNote && <span className="text-muted-foreground ml-1 text-sm">{priceNote}</span>}
     </div>
 
     <ul className="space-y-3 mb-8 flex-1">
       {features.map((f) => (
-        <li key={f} className="flex gap-3 text-sm text-foreground/90">
+        <li key={f} className="flex gap-3 text-[13px] text-foreground/85 leading-relaxed">
           <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
           <span>{f}</span>
         </li>

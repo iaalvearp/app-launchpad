@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { ProblemSolution } from "@/components/sections/ProblemSolution";
 import { Plans } from "@/components/sections/Plans";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { B2B } from "@/components/sections/B2B";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Navbar, Footer } from "@/components/sections/NavFooter";
@@ -13,6 +14,7 @@ const Index = () => (
       <Hero />
       <ProblemSolution />
       <Plans />
+      <Testimonials />
       <B2B />
       <FinalCTA />
     </main>

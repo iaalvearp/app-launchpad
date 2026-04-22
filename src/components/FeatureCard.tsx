@@ -16,14 +16,14 @@ export const FeatureCard = ({ icon: Icon, title, items, index = 0 }: FeatureCard
     transition={{ duration: 0.5, delay: index * 0.08 }}
     className="card-glow rounded-2xl p-6 border border-border/60"
   >
-    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 ring-1 ring-primary/20">
-      <Icon className="w-5 h-5 text-primary" />
+    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 ring-1 ring-primary/20">
+      <Icon className="w-4.5 h-4.5 text-primary" />
     </div>
-    <h3 className="text-lg font-semibold text-foreground mb-3">{title}</h3>
+    <h3 className="text-base font-semibold text-foreground mb-3 tracking-tight">{title}</h3>
     <ul className="space-y-2">
       {items.map((item) => (
-        <li key={item} className="text-sm text-muted-foreground flex gap-2 leading-relaxed">
-          <span className="text-primary mt-1">›</span>
+        <li key={item} className="text-xs md:text-[13px] text-muted-foreground flex gap-2 leading-relaxed">
+          <span className="text-primary mt-0.5">›</span>
           <span>{item}</span>
         </li>
       ))}
