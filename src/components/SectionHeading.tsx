@@ -17,15 +17,17 @@ export const SectionHeading = ({ eyebrow, title, subtitle, align = "center" }: S
     className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}
   >
     {eyebrow && (
-      <span className="inline-block font-mono text-xs uppercase tracking-[0.2em] text-primary mb-4">
+      <span className="inline-block font-mono text-[11px] uppercase tracking-[0.22em] text-primary mb-4">
         {eyebrow}
       </span>
     )}
-    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+    <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.05]">
       {title}
     </h2>
     {subtitle && (
-      <p className="mt-5 text-lg text-muted-foreground leading-relaxed">{subtitle}</p>
+      <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+        {subtitle}
+      </p>
     )}
   </motion.div>
 );

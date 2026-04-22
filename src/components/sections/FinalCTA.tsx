@@ -3,18 +3,17 @@ import { Download, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { CTAButton } from "../CTAButton";
 import { useToast } from "@/hooks/use-toast";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export const FinalCTA = () => {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
+  const { t } = useI18n();
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    toast({
-      title: "¡Listo!",
-      description: "Te avisaremos en cuanto haya novedades de ALPY.",
-    });
+    toast({ title: t.cta.toastTitle, description: t.cta.toastDesc });
     setEmail("");
   };
 
@@ -31,24 +30,22 @@ export const FinalCTA = () => {
           transition={{ duration: 0.7 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
-            Final call to action
+          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">
+            {t.cta.eyebrow}
           </span>
-          <h2 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight">
-            Ciencia de datos{" "}
+          <h2 className="mt-4 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+            {t.cta.title1}
             <span className="bg-gradient-primary bg-clip-text text-transparent glow-text">
-              en tu bolsillo
+              {t.cta.titleAccent}
             </span>
-            .
+            {t.cta.titleDot}
           </h2>
-          <p className="mt-5 text-lg text-muted-foreground">
-            Descarga ALPY hoy. O suscríbete para recibir el lanzamiento de nuevas funciones.
-          </p>
+          <p className="mt-5 text-base text-muted-foreground">{t.cta.subtitle}</p>
 
           <div className="mt-10 flex justify-center">
             <CTAButton href="enlace_real_aquí" variant="primary" className="text-base px-8 py-4">
               <Download className="w-5 h-5" />
-              Get it on Google Play
+              {t.cta.button}
             </CTAButton>
           </div>
 
@@ -63,7 +60,7 @@ export const FinalCTA = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="tu@email.dev"
+                placeholder={t.cta.placeholder}
                 className="flex-1 bg-transparent py-2.5 outline-none text-sm text-foreground placeholder:text-muted-foreground"
               />
             </div>
@@ -71,10 +68,10 @@ export const FinalCTA = () => {
               type="submit"
               className="px-5 py-2.5 rounded-xl bg-gradient-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition"
             >
-              Avísame
+              {t.cta.submit}
             </button>
           </form>
-          <p className="mt-3 text-xs text-muted-foreground">Sin spam. Solo lanzamientos importantes.</p>
+          <p className="mt-3 text-xs text-muted-foreground">{t.cta.note}</p>
         </motion.div>
       </div>
     </section>
