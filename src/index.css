@@ -202,6 +202,13 @@
     box-shadow: var(--shadow-glow);
     transform: translateY(-4px);
   }
+
+  .glass {
+    background: linear-gradient(145deg, hsl(var(--surface-2) / 0.7), hsl(var(--surface-1) / 0.4));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.6);
+  }
 }
 
 @keyframes float {
