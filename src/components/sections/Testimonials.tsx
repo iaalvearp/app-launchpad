@@ -28,7 +28,7 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="relative rounded-xl border border-border/60 bg-gradient-card p-7 flex flex-col hover:border-primary/40 transition-colors"
+              className="relative rounded-xl border border-border/60 bg-gradient-card p-7 flex flex-col transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:border-primary/40"
             >
               <Quote className="w-5 h-5 text-primary/70 mb-4" />
               <blockquote className="text-base text-foreground/90 leading-relaxed flex-1">
