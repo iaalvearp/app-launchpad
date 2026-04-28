@@ -17,7 +17,7 @@ export const SectionHeading = ({ eyebrow, title, subtitle, align = "center" }: S
     className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}
   >
     {eyebrow && (
-      <span className="inline-block font-mono text-[11px] uppercase tracking-[0.22em] text-primary mb-4">
+      <span className="inline-block font-mono text-[11px] uppercase tracking-[0.28em] font-semibold text-primary/70 mb-5">
         {eyebrow}
       </span>
     )}
