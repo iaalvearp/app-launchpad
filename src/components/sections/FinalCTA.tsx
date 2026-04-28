@@ -33,14 +33,14 @@ export const FinalCTA = () => {
           <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">
             {t.cta.eyebrow}
           </span>
-          <h2 className="mt-4 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+          <h2 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.02]">
             {t.cta.title1}
             <span className="bg-gradient-primary bg-clip-text text-transparent glow-text">
               {t.cta.titleAccent}
             </span>
             {t.cta.titleDot}
           </h2>
-          <p className="mt-5 text-base text-muted-foreground">{t.cta.subtitle}</p>
+          <p className="mt-6 text-base md:text-lg text-muted-foreground">{t.cta.subtitle}</p>
 
           <div className="mt-10 flex justify-center">
             <CTAButton href="enlace_real_aquí" variant="primary" className="text-base px-8 py-4">
