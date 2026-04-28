@@ -41,14 +41,17 @@ export const Navbar = () => {
                 key={l.id}
                 href={`#${l.id}`}
                 className={cn(
-                  "transition-colors relative",
+                  "relative transition-all duration-300 ease-in-out",
                   isActive ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {l.label}
-                {isActive && (
-                  <span className="absolute -bottom-[22px] left-0 right-0 h-px bg-primary" />
-                )}
+                <span
+                  className={cn(
+                    "absolute -bottom-[22px] left-0 right-0 h-px bg-primary transition-all duration-300 ease-in-out",
+                    isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
+                  )}
+                />
               </a>
             );
           })}
@@ -82,21 +85,16 @@ export const Navbar = () => {
 
       {/* Mobile fullscreen menu */}
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-background/95 backdrop-blur-xl flex flex-col animate-in fade-in duration-200">
-          <div className="container flex items-center justify-between h-16 border-b border-border/50">
-            <a href="#" onClick={() => setMobileOpen(false)} className="flex items-center gap-2.5">
-              <img src={logoAlpy} alt="AlPy logo" className="w-8 h-8" />
-              <Wordmark size="md" />
-            </a>
-            <button
-              onClick={() => setMobileOpen(false)}
-              className="w-10 h-10 inline-flex items-center justify-center rounded-md border border-border text-foreground hover:border-primary/60 transition"
-              aria-label="Close menu"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-          <nav className="flex-1 container flex flex-col justify-center gap-2 -mt-16">
+        <div className="md:hidden fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-md animate-in fade-in duration-200">
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="absolute top-4 right-4 z-[110] w-11 h-11 inline-flex items-center justify-center rounded-md border border-border bg-background/40 text-foreground hover:border-primary/60 hover:text-primary transition-all duration-300 ease-in-out"
+            aria-label="Close menu"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <nav className="h-full w-full flex flex-col items-center justify-center space-y-8 px-6">
             {links.map((l) => {
               const isActive = active === l.id;
               return (
@@ -105,18 +103,19 @@ export const Navbar = () => {
                   href={`#${l.id}`}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
-                    "text-3xl font-bold tracking-tight py-3 border-b border-border/40 transition-colors",
-                    isActive ? "text-primary" : "text-foreground hover:text-primary"
+                    "text-2xl font-medium tracking-tight transition-all duration-300 ease-in-out",
+                    isActive ? "text-primary" : "text-foreground/90 hover:text-primary"
                   )}
                 >
                   {l.label}
                 </a>
               );
             })}
-            <div className="mt-8 flex flex-col gap-3">
+
+            <div className="pt-6 flex flex-col items-center gap-3 w-full max-w-xs">
               <button
                 onClick={() => setLang(lang === "en" ? "es" : "en")}
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-border text-sm font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground hover:border-primary/50 transition"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-border text-sm font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-300 ease-in-out"
               >
                 <Languages className="w-4 h-4" />
                 {lang === "en" ? "Switch to ES" : "Cambiar a EN"}
@@ -126,7 +125,7 @@ export const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="inline-flex items-center justify-center px-4 py-3 rounded-lg bg-gradient-primary text-primary-foreground text-sm font-semibold shadow-glow hover:brightness-110 transition"
+                className="w-full inline-flex items-center justify-center px-4 py-3 rounded-lg bg-gradient-primary text-primary-foreground text-sm font-semibold shadow-glow hover:brightness-110 hover:opacity-95 transition-all duration-300 ease-in-out"
               >
                 {t.nav.cta}
               </a>

@@ -17,12 +17,12 @@ export const CTAButton = ({
   external = true,
 }: CTAButtonProps) => {
   const base =
-    "inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+    "inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm tracking-wide transition-all duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
   const variants = {
     primary:
-      "bg-gradient-primary text-primary-foreground shadow-glow hover:scale-[1.03] hover:brightness-110",
+      "bg-gradient-primary text-primary-foreground shadow-glow hover:scale-[1.03] hover:brightness-110 hover:opacity-95",
     outline:
-      "border border-primary/40 text-foreground hover:bg-primary/10 hover:border-primary/70",
+      "border border-primary/40 text-foreground hover:bg-primary/10 hover:border-primary/70 hover:-translate-y-0.5",
     ghost: "text-foreground/80 hover:text-foreground hover:bg-secondary",
   } as const;
 

@@ -36,10 +36,10 @@ export const PlanCard = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-60px" }}
     transition={{ duration: 0.6, delay: index * 0.1 }}
-    className={`relative rounded-xl p-7 flex flex-col border transition-all ${
+    className={`relative rounded-xl p-7 flex flex-col border transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg ${
       highlighted
-        ? "border-primary/60 bg-gradient-card shadow-glow"
-        : "border-border/60 bg-gradient-card hover:border-primary/30"
+        ? "border-primary/60 bg-gradient-card shadow-glow hover:shadow-glow"
+        : "border-border/60 bg-gradient-card hover:border-primary/40"
     }`}
   >
     {highlighted && (
