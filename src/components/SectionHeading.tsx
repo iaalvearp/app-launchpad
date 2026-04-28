@@ -21,11 +21,11 @@ export const SectionHeading = ({ eyebrow, title, subtitle, align = "center" }: S
         {eyebrow}
       </span>
     )}
-    <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.05]">
+    <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.02]">
       {title}
     </h2>
     {subtitle && (
-      <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+      <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
         {subtitle}
       </p>
     )}

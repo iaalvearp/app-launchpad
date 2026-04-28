@@ -9,11 +9,11 @@
 
 @layer base {
   :root {
-    /* Default palette: ALPY Original (navy + ice blue glow) */
-    --background: 215 40% 7%;
+    /* Default palette: ALPY Original (deep grey-navy + ice blue glow) */
+    --background: 220 18% 9%;
     --foreground: 210 40% 98%;
 
-    --card: 215 38% 10%;
+    --card: 220 16% 12%;
     --card-foreground: 210 40% 98%;
 
     --popover: 215 40% 9%;
@@ -35,20 +35,20 @@
     --destructive: 0 75% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 30% 18%;
-    --input: 215 30% 16%;
+    --border: 220 14% 20%;
+    --input: 220 14% 18%;
     --ring: 199 75% 75%;
 
-    --radius: 0.875rem;
+    --radius: 0.75rem;
 
-    /* Semantic surfaces */
-    --surface-1: 215 38% 10%;
-    --surface-2: 215 35% 13%;
-    --surface-3: 215 32% 16%;
+    /* Semantic surfaces — deep grey, not pure black */
+    --surface-1: 220 16% 12%;
+    --surface-2: 220 15% 15%;
+    --surface-3: 220 14% 18%;
 
     /* Gradients & effects */
     --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 0%, hsl(var(--primary) / 0.18), transparent 60%),
-                     linear-gradient(180deg, hsl(var(--background)) 0%, hsl(215 45% 5%) 100%);
+                     linear-gradient(180deg, hsl(var(--background)) 0%, hsl(220 20% 7%) 100%);
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
     --gradient-card: linear-gradient(145deg, hsl(var(--surface-2) / 0.9) 0%, hsl(var(--surface-1) / 0.6) 100%);
     --shadow-glow: 0 0 0 1px hsl(var(--primary) / 0.15), 0 20px 60px -15px hsl(var(--primary) / 0.35);
@@ -72,25 +72,25 @@
     --sidebar-ring: 199 75% 75%;
   }
 
-  /* === Palette: ALPY Original === (same as :root, explicit selector for switcher) */
+  /* === Palette: ALPY Original (locked default) === */
   [data-palette="alpy"] {
-    --background: 215 40% 7%;
+    --background: 220 18% 9%;
     --foreground: 210 40% 98%;
-    --card: 215 38% 10%;
+    --card: 220 16% 12%;
     --primary: 199 75% 75%;
-    --primary-foreground: 215 50% 10%;
+    --primary-foreground: 220 30% 10%;
     --primary-glow: 199 90% 65%;
-    --secondary: 215 35% 14%;
-    --muted: 215 30% 14%;
-    --muted-foreground: 215 20% 70%;
+    --secondary: 220 15% 15%;
+    --muted: 220 14% 15%;
+    --muted-foreground: 220 12% 70%;
     --accent: 199 75% 75%;
-    --accent-foreground: 215 50% 10%;
-    --border: 215 30% 18%;
-    --input: 215 30% 16%;
+    --accent-foreground: 220 30% 10%;
+    --border: 220 14% 20%;
+    --input: 220 14% 18%;
     --ring: 199 75% 75%;
-    --surface-1: 215 38% 10%;
-    --surface-2: 215 35% 13%;
-    --surface-3: 215 32% 16%;
+    --surface-1: 220 16% 12%;
+    --surface-2: 220 15% 15%;
+    --surface-3: 220 14% 18%;
   }
 
   /* === Palette: Midnight Python (navy + Python yellow) === */
@@ -201,6 +201,13 @@
   .card-glow:hover {
     box-shadow: var(--shadow-glow);
     transform: translateY(-4px);
+  }
+
+  .glass {
+    background: linear-gradient(145deg, hsl(var(--surface-2) / 0.7), hsl(var(--surface-1) / 0.4));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.6);
   }
 }
 

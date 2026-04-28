@@ -28,15 +28,15 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="relative rounded-2xl border border-border/60 bg-gradient-card p-6 flex flex-col hover:border-primary/40 transition-colors"
+              className="relative rounded-xl border border-border/60 bg-gradient-card p-7 flex flex-col hover:border-primary/40 transition-colors"
             >
               <Quote className="w-5 h-5 text-primary/70 mb-4" />
-              <blockquote className="text-sm md:text-[15px] text-foreground/90 leading-relaxed flex-1">
+              <blockquote className="text-base text-foreground/90 leading-relaxed flex-1">
                 "{item.quote}"
               </blockquote>
-              <figcaption className="mt-5 pt-5 border-t border-border/50">
-                <div className="text-sm font-semibold text-foreground">{item.name}</div>
-                <div className="text-xs text-muted-foreground mt-0.5">{item.role}</div>
+              <figcaption className="mt-6 pt-5 border-t border-border/50">
+                <h3 className="text-base font-bold text-foreground tracking-tight">{item.name}</h3>
+                <div className="text-xs text-muted-foreground mt-1">{item.role}</div>
               </figcaption>
             </motion.figure>
           ))}
