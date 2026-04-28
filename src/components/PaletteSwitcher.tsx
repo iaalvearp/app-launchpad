@@ -82,10 +82,11 @@ export const PaletteSwitcher = () => {
 
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-12 h-12 rounded-full bg-gradient-primary shadow-glow flex items-center justify-center text-primary-foreground hover:scale-110 transition-transform animate-pulse-glow"
-        aria-label="Abrir selector de paletas"
+        className={`w-11 h-11 rounded-full flex items-center justify-center backdrop-blur-md border border-border/60 bg-[hsl(var(--surface-2))]/30 text-muted-foreground/60 transition-all duration-300 hover:bg-gradient-primary hover:text-primary-foreground hover:border-transparent hover:opacity-100 hover:scale-110 hover:shadow-glow ${open ? "bg-gradient-primary !text-primary-foreground border-transparent shadow-glow opacity-100" : "opacity-50"}`}
+        aria-label="Abrir selector de paletas (dev)"
+        title="Paletas — solo para desarrollo"
       >
-        <Palette className="w-5 h-5" />
+        <Palette className="w-4 h-4" />
       </button>
     </div>
   );
