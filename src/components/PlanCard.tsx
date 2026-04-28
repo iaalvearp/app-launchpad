@@ -36,9 +36,9 @@ export const PlanCard = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-60px" }}
     transition={{ duration: 0.6, delay: index * 0.1 }}
-    className={`relative rounded-3xl p-7 flex flex-col border transition-all ${
+    className={`relative rounded-xl p-7 flex flex-col border transition-all ${
       highlighted
-        ? "border-primary/50 bg-gradient-card shadow-glow"
+        ? "border-primary/60 bg-gradient-card shadow-glow"
         : "border-border/60 bg-gradient-card hover:border-primary/30"
     }`}
   >
@@ -51,23 +51,23 @@ export const PlanCard = ({
     <div className="flex items-center justify-between mb-5">
       <div>
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">{tier}</p>
-        <h3 className="text-xl font-bold text-foreground mt-1 tracking-tight">{name}</h3>
+        <h3 className="text-lg md:text-xl font-bold text-foreground mt-2 tracking-tight leading-tight">{name}</h3>
       </div>
-      <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center ring-1 ring-primary/20">
+      <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center ring-1 ring-primary/20 shrink-0">
         <Icon className="w-5 h-5 text-primary" />
       </div>
     </div>
 
-    <p className="text-xs text-muted-foreground mb-5 min-h-[36px] leading-relaxed">{tagline}</p>
+    <p className="text-sm text-muted-foreground mb-6 min-h-[40px] leading-relaxed">{tagline}</p>
 
     <div className="mb-6 pb-6 border-b border-border/60">
-      <span className="text-4xl font-bold text-foreground tracking-tight">{price}</span>
+      <span className="text-5xl font-extrabold text-foreground tracking-tight">{price}</span>
       {priceNote && <span className="text-muted-foreground ml-1 text-sm">{priceNote}</span>}
     </div>
 
     <ul className="space-y-3 mb-8 flex-1">
       {features.map((f) => (
-        <li key={f} className="flex gap-3 text-[13px] text-foreground/85 leading-relaxed">
+        <li key={f} className="flex gap-3 text-sm text-foreground/85 leading-relaxed">
           <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
           <span>{f}</span>
         </li>
