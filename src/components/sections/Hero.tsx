@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { Download, ChevronRight, Smartphone } from "lucide-react";
-import logoAlpy from "@/assets/logo-alpy.svg";
+import { Download, ChevronRight } from "lucide-react";
 import { CTAButton } from "../CTAButton";
 import { Wordmark } from "../Wordmark";
 import { useI18n } from "@/i18n/I18nProvider";
+import heroPhones from "@/assets/hero-phones.png";
 
 export const Hero = () => {
   const { t } = useI18n();
   return (
-    <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28 bg-gradient-hero">
+    <section id="inicio" className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28 bg-gradient-hero scroll-mt-20">
       <div className="absolute inset-0 triangle-pattern opacity-20 pointer-events-none" />
       <div className="absolute top-1/3 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
@@ -48,7 +48,7 @@ export const Hero = () => {
                 <Download className="w-4 h-4" />
                 {t.hero.ctaPrimary}
               </CTAButton>
-              <CTAButton href="#planes" variant="outline" external={false}>
+              <CTAButton href="#precios" variant="outline" external={false}>
                 {t.hero.ctaSecondary} <ChevronRight className="w-4 h-4" />
               </CTAButton>
             </div>
@@ -68,7 +68,7 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="absolute -inset-10 bg-primary/15 blur-3xl rounded-full" />
+            <div className="absolute -inset-10 bg-primary/15 blur-3xl rounded-full pointer-events-none" />
             <img
               src={heroPhones}
               alt="AlPy corriendo en dos teléfonos Android: editor de código Python y pantalla de ajustes"
@@ -76,3 +76,8 @@ export const Hero = () => {
               className="relative w-full max-w-[560px] mx-auto drop-shadow-[0_30px_60px_hsl(var(--primary)/0.25)] animate-float"
             />
           </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
