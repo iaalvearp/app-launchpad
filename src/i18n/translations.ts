@@ -436,10 +436,10 @@ export const translations: Record<Lang, Dict> = {
     },
     how: {
       eyebrow: "Cómo funciona",
-      title1: "Del install al primer script en ", titleAccent: "60 segundos", titleDot: ".",
-      subtitle: "Sin ceremonias de setup. Sin entornos rotos. Abres la app y corres Python real.",
+      title1: "De la instalación al primer script en ", titleAccent: "60 segundos", titleDot: ".",
+      subtitle: "Sin ceremonias de configuración. Sin entornos rotos. Abres la app y corres Python real.",
       steps: [
-        { step: "01", title: "Instala desde Google Play", desc: "Un tap. ~40 MB. Cero cuentas para empezar en modo invitado." },
+        { step: "01", title: "Instala desde Google Play", desc: "Un toque. ~40 MB. Cero cuentas para empezar en modo invitado." },
         { step: "02", title: "Abre un notebook o script", desc: "Python 3.11 nativo arranca al instante. NumPy, Pandas y Matplotlib ya están listos, offline." },
         { step: "03", title: "Ejecuta, itera, comparte", desc: "Corre en el dispositivo, sincroniza con la nube cuando quieras, comparte resultados como imagen o .py." },
         { step: "04", title: "Sube de plan cuando lo necesites", desc: "Pro desbloquea el arsenal completo de ciencia de datos. Premium suma red ilimitada y asistencia de IA." },
@@ -581,7 +581,7 @@ export const translations: Record<Lang, Dict> = {
     },
     seo: {
       home: { title: "AlPy · IDE de Python offline para Android | Programa donde sea", description: "AlPy es el único IDE móvil que blinda tu productividad. Python 3.11 nativo offline con NumPy, Pandas y Matplotlib. Gratis en Google Play." },
-      how: { title: "Cómo funciona AlPy · Del install al primer script en 60s", description: "Mira cómo AlPy convierte tu Android en un estudio Python real en cuatro pasos — sin setup, sin internet." },
+      how: { title: "Cómo funciona AlPy · De la instalación al primer script en 60s", description: "Mira cómo AlPy convierte tu Android en un estudio Python real en cuatro pasos — sin configuración, sin internet." },
       plans: { title: "Precios AlPy · Planes Free, Pro y Premium", description: "Empieza gratis con Python 3.11 nativo. Sube a Pro por las librerías de ciencia de datos offline o a Premium por red ilimitada e IA." },
       useCases: { title: "Casos de uso AlPy · Estudiantes, analistas, founders, bootcamps", description: "Flujos reales con AlPy — desde aprender Python en el bus hasta prototipar MVPs sin laptop." },
       blog: { title: "Blog AlPy · Insights de desarrollo mobile-first", description: "Playbooks para lanzar MVPs desde el celular, errores que evitar y cuánto cuesta de verdad el software en 2026." },

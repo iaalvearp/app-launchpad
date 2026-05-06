@@ -41,7 +41,7 @@ export const Plans = () => {
   ];
 
   return (
-    <section id="planes" className="py-24 lg:py-32 relative">
+    <section id="precios" className="py-24 lg:py-32 relative scroll-mt-20">
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[500px] bg-primary/5 blur-3xl pointer-events-none" />
       <div className="container relative">
         <SectionHeading

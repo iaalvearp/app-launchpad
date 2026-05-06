@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { Download, ChevronRight, Smartphone } from "lucide-react";
-import logoAlpy from "@/assets/logo-alpy.svg";
+import { Download, ChevronRight } from "lucide-react";
 import { CTAButton } from "../CTAButton";
 import { Wordmark } from "../Wordmark";
 import { useI18n } from "@/i18n/I18nProvider";
+import heroPhones from "@/assets/hero-phones.png";
 
 export const Hero = () => {
   const { t } = useI18n();
   return (
-    <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28 bg-gradient-hero">
+    <section id="inicio" className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28 bg-gradient-hero scroll-mt-20">
       <div className="absolute inset-0 triangle-pattern opacity-20 pointer-events-none" />
       <div className="absolute top-1/3 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
@@ -48,7 +48,7 @@ export const Hero = () => {
                 <Download className="w-4 h-4" />
                 {t.hero.ctaPrimary}
               </CTAButton>
-              <CTAButton href="#planes" variant="outline" external={false}>
+              <CTAButton href="#precios" variant="outline" external={false}>
                 {t.hero.ctaSecondary} <ChevronRight className="w-4 h-4" />
               </CTAButton>
             </div>
@@ -68,51 +68,13 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="absolute -inset-10 bg-primary/15 blur-3xl rounded-full" />
-
-            {/* Bento glassmorphism container */}
-            <div className="relative glass rounded-3xl p-6 md:p-8 shadow-elevated">
-              <div className="flex items-center justify-between mb-5">
-                <div className="flex items-center gap-2.5">
-                  <img src={logoAlpy} alt="AlPy" className="w-7 h-7" />
-                  <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                    Preview
-                  </span>
-                </div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-primary px-2 py-1 rounded-md bg-primary/10 border border-primary/20">
-                  Android
-                </span>
-              </div>
-
-              {/* Phone placeholder */}
-              <div className="relative mx-auto aspect-[9/17] max-w-[260px] rounded-[2rem] border-2 border-border bg-[hsl(var(--surface-1))] overflow-hidden shadow-glow">
-                {/* Notch */}
-                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 rounded-full bg-[hsl(var(--background))] z-10" />
-
-                {/* Screen content placeholder */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center bg-gradient-to-b from-primary/5 via-transparent to-primary/10">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center animate-float">
-                    <Smartphone className="w-7 h-7 text-primary" />
-                  </div>
-                  <div className="space-y-1.5">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
-                      Placeholder
-                    </p>
-                    <p className="text-xs text-muted-foreground leading-relaxed max-w-[180px]">
-                      Mobile App Screenshot / 3D Render Here
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 flex items-center justify-between text-[11px] text-muted-foreground">
-                <span className="font-mono">v1.0 · launch</span>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
-                  Live
-                </span>
-              </div>
-            </div>
+            <div className="absolute -inset-10 bg-primary/15 blur-3xl rounded-full pointer-events-none" />
+            <img
+              src={heroPhones}
+              alt="AlPy corriendo en dos teléfonos Android: editor de código Python y pantalla de ajustes"
+              loading="eager"
+              className="relative w-full max-w-[560px] mx-auto drop-shadow-[0_30px_60px_hsl(var(--primary)/0.25)] animate-float"
+            />
           </motion.div>
         </div>
       </div>

@@ -1,23 +1,33 @@
 import { Languages, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useI18n } from "@/i18n/I18nProvider";
+import { useActiveSection } from "@/hooks/use-active-section";
 import { Wordmark } from "../Wordmark";
 import logoAlpy from "@/assets/logo-alpy.svg";
 import { cn } from "@/lib/utils";
+
+type LinkItem =
+  | { kind: "hash"; hash: string; label: string }
+  | { kind: "route"; to: string; label: string };
 
 export const Navbar = () => {
   const { lang, setLang, t } = useI18n();
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
-  const links = [
-    { to: "/", label: t.nav.home, end: true },
-    { to: "/como-funciona", label: t.nav.how },
-    { to: "/precios", label: t.nav.plans },
-    { to: "/casos-de-uso", label: t.nav.useCases },
-    { to: "/blog", label: t.nav.blog },
-    { to: "/contacto", label: t.nav.contact },
+  const sectionIds = ["inicio", "como-funciona", "precios", "casos-de-uso"];
+  const active = useActiveSection(isHome ? sectionIds : []);
+
+  const links: LinkItem[] = [
+    { kind: "hash", hash: "inicio", label: t.nav.home },
+    { kind: "hash", hash: "como-funciona", label: t.nav.how },
+    { kind: "hash", hash: "precios", label: t.nav.plans },
+    { kind: "hash", hash: "casos-de-uso", label: t.nav.useCases },
+    { kind: "route", to: "/blog", label: t.nav.blog },
+    { kind: "route", to: "/contacto", label: t.nav.contact },
   ];
 
   useEffect(() => {
@@ -25,8 +35,34 @@ export const Navbar = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  // close mobile on route change
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
+
+  // Scroll to hash when landing on home with a hash
+  useEffect(() => {
+    if (isHome && location.hash) {
+      const id = location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+    }
+  }, [isHome, location.hash]);
+
+  const goHash = (hash: string) => {
+    setMobileOpen(false);
+    if (isHome) {
+      const el = document.getElementById(hash);
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${hash}`);
+    } else {
+      navigate(`/#${hash}`);
+    }
+  };
+
+  const isHashActive = (hash: string) => isHome && active === hash;
+
+  const linkClass = (activeState: boolean) => cn(
+    "relative transition-all duration-300 ease-in-out py-1",
+    activeState ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"
+  );
 
   return (
     <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border/50">
@@ -36,15 +72,23 @@ export const Navbar = () => {
           <Wordmark size="md" />
         </Link>
         <nav className="hidden md:flex items-center gap-7 text-sm">
-          {links.map((l) => (
+          {links.map((l) => l.kind === "hash" ? (
+            <button
+              key={l.hash}
+              onClick={() => goHash(l.hash)}
+              className={linkClass(isHashActive(l.hash))}
+            >
+              {l.label}
+              <span className={cn(
+                "absolute -bottom-[18px] left-0 right-0 h-px bg-primary transition-all duration-300 ease-in-out",
+                isHashActive(l.hash) ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
+              )} />
+            </button>
+          ) : (
             <NavLink
               key={l.to}
               to={l.to}
-              end={l.end}
-              className={({ isActive }) => cn(
-                "relative transition-all duration-300 ease-in-out py-1",
-                isActive ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"
-              )}
+              className={({ isActive }) => linkClass(isActive)}
             >
               {({ isActive }) => (
                 <>
@@ -95,11 +139,21 @@ export const Navbar = () => {
             <X className="w-5 h-5" />
           </button>
           <nav className="h-full w-full flex flex-col items-center justify-center space-y-6 px-6">
-            {links.map((l) => (
+            {links.map((l) => l.kind === "hash" ? (
+              <button
+                key={l.hash}
+                onClick={() => goHash(l.hash)}
+                className={cn(
+                  "text-2xl font-medium tracking-tight transition-all duration-300 ease-in-out",
+                  isHashActive(l.hash) ? "text-primary" : "text-foreground/90 hover:text-primary"
+                )}
+              >
+                {l.label}
+              </button>
+            ) : (
               <NavLink
                 key={l.to}
                 to={l.to}
-                end={l.end}
                 onClick={() => setMobileOpen(false)}
                 className={({ isActive }) => cn(
                   "text-2xl font-medium tracking-tight transition-all duration-300 ease-in-out",
@@ -149,10 +203,10 @@ export const Footer = () => {
         <div>
           <h4 className="font-mono text-[11px] uppercase tracking-[0.25em] text-foreground/70 mb-4">{t.footer.nav}</h4>
           <ul className="space-y-2 text-muted-foreground">
-            <li><Link to="/" className="hover:text-foreground transition">{t.nav.home}</Link></li>
-            <li><Link to="/como-funciona" className="hover:text-foreground transition">{t.nav.how}</Link></li>
-            <li><Link to="/precios" className="hover:text-foreground transition">{t.nav.plans}</Link></li>
-            <li><Link to="/casos-de-uso" className="hover:text-foreground transition">{t.nav.useCases}</Link></li>
+            <li><Link to="/#inicio" className="hover:text-foreground transition">{t.nav.home}</Link></li>
+            <li><Link to="/#como-funciona" className="hover:text-foreground transition">{t.nav.how}</Link></li>
+            <li><Link to="/#precios" className="hover:text-foreground transition">{t.nav.plans}</Link></li>
+            <li><Link to="/#casos-de-uso" className="hover:text-foreground transition">{t.nav.useCases}</Link></li>
           </ul>
         </div>
         <div>

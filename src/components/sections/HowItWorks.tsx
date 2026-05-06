@@ -5,7 +5,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 export const HowItWorks = () => {
   const { t } = useI18n();
   return (
-    <section id="como-funciona" className="py-24 lg:py-32 relative">
+    <section id="como-funciona" className="py-24 lg:py-32 relative scroll-mt-20">
       <div className="container">
         <SectionHeading
           eyebrow={t.how.eyebrow}
