@@ -203,10 +203,10 @@ export const Footer = () => {
         <div>
           <h4 className="font-mono text-[11px] uppercase tracking-[0.25em] text-foreground/70 mb-4">{t.footer.nav}</h4>
           <ul className="space-y-2 text-muted-foreground">
-            <li><Link to="/" className="hover:text-foreground transition">{t.nav.home}</Link></li>
-            <li><Link to="/como-funciona" className="hover:text-foreground transition">{t.nav.how}</Link></li>
-            <li><Link to="/precios" className="hover:text-foreground transition">{t.nav.plans}</Link></li>
-            <li><Link to="/casos-de-uso" className="hover:text-foreground transition">{t.nav.useCases}</Link></li>
+            <li><Link to="/#inicio" className="hover:text-foreground transition">{t.nav.home}</Link></li>
+            <li><Link to="/#como-funciona" className="hover:text-foreground transition">{t.nav.how}</Link></li>
+            <li><Link to="/#precios" className="hover:text-foreground transition">{t.nav.plans}</Link></li>
+            <li><Link to="/#casos-de-uso" className="hover:text-foreground transition">{t.nav.useCases}</Link></li>
           </ul>
         </div>
         <div>
