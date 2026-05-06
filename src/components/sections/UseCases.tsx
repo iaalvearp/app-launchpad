@@ -8,7 +8,7 @@ const ICONS: LucideIcon[] = [GraduationCap, LineChart, Users, Rocket];
 export const UseCases = () => {
   const { t } = useI18n();
   return (
-    <section id="casos-de-uso" className="py-24 lg:py-32 relative">
+    <section id="casos-de-uso" className="py-24 lg:py-32 relative scroll-mt-20">
       <div className="container">
         <SectionHeading
           eyebrow={t.useCases.eyebrow}
