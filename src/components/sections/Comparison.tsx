@@ -35,18 +35,28 @@ export const Comparison = () => {
           className="mt-14 max-w-5xl mx-auto rounded-xl border border-border/60 bg-gradient-card overflow-hidden"
         >
           {/* Desktop / tablet table */}
-          <div className="hidden md:grid grid-cols-4 gap-4 px-6 py-5 border-b border-border/60 bg-[hsl(var(--surface-2))]">
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Feature</span>
+          <div className="hidden md:grid grid-cols-3 gap-4 px-6 py-5 border-b border-border/60 bg-[hsl(var(--surface-2))]">
             <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">{t.comparison.headerAlpy}</span>
             <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{t.comparison.headerOther}</span>
             <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{t.comparison.headerWeb}</span>
           </div>
           {t.comparison.rows.map((row, i) => (
-            <div key={row.feature} className={`px-6 py-5 grid md:grid-cols-4 gap-4 ${i !== 0 ? "border-t border-border/40" : ""}`}>
-              <span className="text-sm font-semibold text-foreground">{row.feature}</span>
-              <Cell value={row.alpy} accent />
-              <Cell value={row.other} />
-              <Cell value={row.web} />
+            <div key={row.feature} className={`px-6 py-5 border-t border-border/40 first:border-t-0`}>
+              <p className="text-sm font-semibold text-foreground mb-3">{row.feature}</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
+                <div className="flex items-start gap-2">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-primary shrink-0 w-20 md:hidden pt-0.5">{t.comparison.headerAlpy}</span>
+                  <Cell value={row.alpy} accent />
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground shrink-0 w-20 md:hidden pt-0.5">{t.comparison.headerOther}</span>
+                  <Cell value={row.other} />
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground shrink-0 w-20 md:hidden pt-0.5">{t.comparison.headerWeb}</span>
+                  <Cell value={row.web} />
+                </div>
+              </div>
             </div>
           ))}
         </motion.div>
