@@ -92,7 +92,8 @@ export type Dict = {
     lastUpdated: string;
     sections: {
       who: { title: string; body: string };
-      data: { title: string; body: string };
+      notCollected: { title: string; body: string };
+      collected: { title: string; body: string };
       purpose: { title: string; body: string };
       storage: { title: string; body: string };
       rights: { title: string; body: string };
@@ -517,16 +518,44 @@ export const translations: Record<Lang, Dict> = {
     },
     privacy: {
       title: "Privacy Policy",
-      lastUpdated: "Last updated: May 2026",
+      lastUpdated: "Last updated: June 2026",
       sections: {
-        who: { title: "Who we are", body: "AlPy ('we', 'us', 'our') is an offline Python IDE for Android. This policy explains how we handle your information when you use our app and website." },
-        data: { title: "What data we collect", body: "We collect minimal data by design. Your code, scripts, and notebook content never leave your device unless you explicitly opt into cloud sync. If you create an account, we store your email, language preference, and active plan. We also collect anonymized usage data (session length, crash reports) that cannot identify you personally." },
-        purpose: { title: "How we use your data", body: "We use your data only to: manage your account and subscription, improve the app through crash and error analysis, and send you launch announcements if you subscribed to our mailing list. We never sell your data." },
-        storage: { title: "Where your data is stored", body: "Your code stays on your device by default. Cloud sync is opt-in and encrypted both in transit and at rest. Account data is stored on secure servers within the EU." },
-        rights: { title: "Your rights", body: "You have the right to access, correct, or delete your personal data at any time. You can unsubscribe from emails with one click. For any data request, contact us at privacy@alpy.dev." },
-        cookies: { title: "Cookies and tracking", body: "The AlPy app does not use cookies. Our landing page may use anonymous analytics cookies to understand visitor behavior. No personal data is collected through cookies." },
-        changes: { title: "Changes to this policy", body: "We will notify you by email if we make material changes to this policy. Continued use of AlPy after changes constitutes acceptance of the updated policy." },
-        contact: { title: "Contact us", body: "If you have questions about this policy or your data, email us at privacy@alpy.dev. We respond within 48 hours." },
+        who: {
+          title: "Who we are",
+          body: "AlPy is an offline Python IDE for Android, developed to help students, developers and data analysts code anywhere without an internet connection. This policy explains how we handle your information.",
+        },
+        notCollected: {
+          title: "What we never collect",
+          body: "Your code, scripts, notebooks and any data you process inside AlPy stay on your device. We never read, transmit or store the content of your files unless you explicitly enable cloud sync.",
+        },
+        collected: {
+          title: "What we do collect",
+          body: "If you create an account: your email address, preferred language and active plan. Anonymously and without linking to your identity: crash reports and session error logs, used only to fix bugs.",
+        },
+        purpose: {
+          title: "How we use your data",
+          body: "To manage your account and subscription via Google Play. To improve app stability using anonymous crash data. To send release announcements only if you subscribed — you can unsubscribe at any time.",
+        },
+        storage: {
+          title: "Where your data lives",
+          body: "Your code lives on your device by default. Cloud sync is opt-in, encrypted in transit (TLS) and at rest (AES-256). We do not sell or share your data with third parties.",
+        },
+        rights: {
+          title: "Your rights",
+          body: "You can request access to, correction of, or deletion of your personal data at any time. To exercise these rights, email us at privacy@alpy.dev. We respond within 30 days.",
+        },
+        cookies: {
+          title: "Cookies and tracking",
+          body: "The AlPy app does not use cookies. This landing page may use anonymous analytics cookies (no personal data). You can block them via your browser settings.",
+        },
+        changes: {
+          title: "Changes to this policy",
+          body: "If we make material changes, we will notify registered users by email at least 14 days before they take effect. Continued use after that date implies acceptance.",
+        },
+        contact: {
+          title: "Contact",
+          body: "For any privacy-related question, write to privacy@alpy.dev. For general inquiries: hello@alpy.dev.",
+        },
       },
     },
     seo: {
@@ -707,16 +736,44 @@ export const translations: Record<Lang, Dict> = {
     },
     privacy: {
       title: "Política de Privacidad",
-      lastUpdated: "Última actualización: mayo 2026",
+      lastUpdated: "Última actualización: junio de 2026",
       sections: {
-        who: { title: "Quiénes somos", body: "AlPy ('nosotros', 'nuestra') es un IDE de Python offline para Android. Esta política explica cómo manejamos tu información cuando usas nuestra app y sitio web." },
-        data: { title: "Qué datos recopilamos", body: "Recopilamos datos mínimos por diseño. Tu código, scripts y notebooks nunca salen de tu dispositivo a menos que actives explícitamente el sync en la nube. Si creas una cuenta, almacenamos tu email, idioma preferido y plan activo. También recopilamos datos de uso anónimos (duración de sesión, reportes de crash) que no pueden identificarte personalmente." },
-        purpose: { title: "Para qué usamos tus datos", body: "Usamos tus datos solo para: gestionar tu cuenta y suscripción, mejorar la app mediante análisis de errores y crashes, y enviarte avisos de lanzamiento si te suscribiste a nuestra lista. Nunca vendemos tus datos." },
-        storage: { title: "Dónde se almacenan tus datos", body: "Tu código permanece en tu dispositivo por defecto. El sync en la nube es opt-in y está cifrado tanto en tránsito como en reposo. Los datos de cuenta se almacenan en servidores seguros dentro de la UE." },
-        rights: { title: "Tus derechos", body: "Tienes derecho a acceder, corregir o eliminar tus datos personales en cualquier momento. Puedes darte de baja de los emails con un clic. Para cualquier solicitud de datos, contáctanos en privacy@alpy.dev." },
-        cookies: { title: "Cookies y rastreo", body: "La app AlPy no usa cookies. Nuestra landing page puede usar cookies de análisis anónimo para entender el comportamiento de los visitantes. No se recopilan datos personales a través de cookies." },
-        changes: { title: "Cambios a esta política", body: "Te notificaremos por email si hacemos cambios materiales a esta política. El uso continuado de AlPy después de los cambios constituye la aceptación de la política actualizada." },
-        contact: { title: "Contáctanos", body: "Si tienes preguntas sobre esta política o tus datos, escríbenos a privacy@alpy.dev. Respondemos en menos de 48 horas." },
+        who: {
+          title: "Quiénes somos",
+          body: "AlPy es un IDE de Python offline para Android, creado para que estudiantes, desarrolladores y analistas de datos puedan programar en cualquier lugar sin conexión a internet. Esta política explica cómo gestionamos tu información.",
+        },
+        notCollected: {
+          title: "Qué nunca recopilamos",
+          body: "Tu código, scripts, notebooks y cualquier dato que proceses dentro de AlPy permanecen en tu dispositivo. Nunca leemos, transmitimos ni almacenamos el contenido de tus archivos, salvo que actives el sync en la nube de forma explícita.",
+        },
+        collected: {
+          title: "Qué sí recopilamos",
+          body: "Si creas una cuenta: tu dirección de email, idioma preferido y plan activo. De forma anónima y sin vincularlo a tu identidad: reportes de crashes y logs de error de sesión, utilizados únicamente para corregir errores.",
+        },
+        purpose: {
+          title: "Para qué usamos tus datos",
+          body: "Para gestionar tu cuenta y suscripción a través de Google Play. Para mejorar la estabilidad de la app usando datos anónimos de crashes. Para enviarte avisos de lanzamiento solo si te suscribiste — puedes darte de baja en cualquier momento.",
+        },
+        storage: {
+          title: "Dónde viven tus datos",
+          body: "Tu código vive en tu dispositivo por defecto. El sync en la nube es opt-in, cifrado en tránsito (TLS) y en reposo (AES-256). No vendemos ni compartimos tus datos con terceros.",
+        },
+        rights: {
+          title: "Tus derechos",
+          body: "Puedes solicitar acceso, corrección o eliminación de tus datos personales en cualquier momento. Para ejercer estos derechos, escríbenos a privacy@alpy.dev. Respondemos en un plazo de 30 días.",
+        },
+        cookies: {
+          title: "Cookies y rastreo",
+          body: "La app de AlPy no utiliza cookies. Esta landing page puede usar cookies de análisis anónimo (sin datos personales). Puedes bloquearlas desde la configuración de tu navegador.",
+        },
+        changes: {
+          title: "Cambios en esta política",
+          body: "Si realizamos cambios materiales, notificaremos a los usuarios registrados por email con al menos 14 días de antelación. El uso continuado tras esa fecha implica aceptación.",
+        },
+        contact: {
+          title: "Contacto",
+          body: "Para cualquier consulta sobre privacidad, escribe a privacy@alpy.dev. Para consultas generales: hello@alpy.dev.",
+        },
       },
     },
     seo: {

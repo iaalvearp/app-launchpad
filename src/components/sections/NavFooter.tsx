@@ -85,70 +85,18 @@ export const Navbar = () => {
           <img src={logoAlpy} alt="AlPy logo" className="w-8 h-8" />
           <Wordmark size="md" />
         </Link>
-        <nav className="hidden md:flex items-center gap-7 text-sm">
-          {links.map((l) =>
-            l.kind === "hash" ? (
-              <button
-                key={l.hash}
-                onClick={() => goHash(l.hash)}
-                className={linkClass(isHashActive(l.hash))}
-              >
-                {l.label}
-                <span
-                  className={cn(
-                    "absolute -bottom-[18px] left-0 right-0 h-px bg-primary transition-all duration-300 ease-in-out",
-                    isHashActive(l.hash)
-                      ? "opacity-100 scale-x-100"
-                      : "opacity-0 scale-x-0",
-                  )}
-                />
-              </button>
-            ) : (
-              <NavLink
-                  key={l.to}
-                  to={l.to}
-                  className={({ isActive }) => linkClass(isActive || (l.to === "/contacto" && isHashActive("descargar")))}
-                >
-                  {({ isActive }) => {
-                    const routeActive = isActive || (l.to === "/contacto" && active === "descargar");
-                    return (
-                      <>
-                        {l.label}
-                        <span
-                          className={cn(
-                            "absolute -bottom-[18px] left-0 right-0 h-px bg-primary transition-all duration-300 ease-in-out",
-                            routeActive
-                              ? "opacity-100 scale-x-100"
-                              : "opacity-0 scale-x-0",
-                          )}
-                        />
-                      </>
-                    );
-                  }}
-                </NavLink>
-            ),
-          )}
-        </nav>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground hover:border-primary/50 transition"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-border text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground hover:border-primary/50 transition"
             aria-label="Toggle language"
           >
             <Languages className="w-3.5 h-3.5" />
             {lang === "en" ? "EN" : "ES"}
           </button>
-          <a
-            href="enlace_real_aquí"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex px-4 py-2 rounded-lg bg-gradient-primary text-primary-foreground text-sm font-semibold shadow-glow hover:brightness-110 transition"
-          >
-            {t.nav.cta}
-          </a>
           <button
             onClick={() => setMobileOpen(true)}
-            className="md:hidden w-10 h-10 inline-flex items-center justify-center rounded-md border border-border text-foreground hover:border-primary/60 transition"
+            className="w-10 h-10 inline-flex items-center justify-center rounded-md border border-border text-foreground hover:border-primary/60 transition"
             aria-label="Open menu"
           >
             <Menu className="w-5 h-5" />
