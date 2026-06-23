@@ -13,7 +13,7 @@ export interface BlogPostT {
 export type Dict = {
   nav: {
     home: string; how: string; plans: string; useCases: string;
-    blog: string; contact: string; cta: string;
+    community: string; faq: string; blog: string; contact: string; cta: string;
     why: string; testimonials: string; b2b: string; download: string;
   };
   hero: {
@@ -87,6 +87,20 @@ export type Dict = {
   };
   blog: BlogPostT[];
   footer: { tagline: string; privacy: string; nav: string; resources: string; company: string; rights: string };
+  privacy: {
+    title: string;
+    lastUpdated: string;
+    sections: {
+      who: { title: string; body: string };
+      data: { title: string; body: string };
+      purpose: { title: string; body: string };
+      storage: { title: string; body: string };
+      rights: { title: string; body: string };
+      cookies: { title: string; body: string };
+      changes: { title: string; body: string };
+      contact: { title: string; body: string };
+    };
+  };
   seo: {
     home: { title: string; description: string };
     how: { title: string; description: string };
@@ -313,7 +327,7 @@ export const translations: Record<Lang, Dict> = {
   en: {
     nav: {
       home: "Home", how: "How it works", plans: "Pricing", useCases: "Use cases",
-      blog: "Blog", contact: "Contact", cta: "Google Play",
+      community: "Community", faq: "FAQ", blog: "Blog", contact: "Contact", cta: "Google Play",
       why: "Why AlPy", testimonials: "Testimonials", b2b: "B2B", download: "Download",
     },
     hero: {
@@ -501,6 +515,20 @@ export const translations: Record<Lang, Dict> = {
       nav: "Navigate", resources: "Resources", company: "Company",
       rights: "All rights reserved.",
     },
+    privacy: {
+      title: "Privacy Policy",
+      lastUpdated: "Last updated: May 2026",
+      sections: {
+        who: { title: "Who we are", body: "AlPy ('we', 'us', 'our') is an offline Python IDE for Android. This policy explains how we handle your information when you use our app and website." },
+        data: { title: "What data we collect", body: "We collect minimal data by design. Your code, scripts, and notebook content never leave your device unless you explicitly opt into cloud sync. If you create an account, we store your email, language preference, and active plan. We also collect anonymized usage data (session length, crash reports) that cannot identify you personally." },
+        purpose: { title: "How we use your data", body: "We use your data only to: manage your account and subscription, improve the app through crash and error analysis, and send you launch announcements if you subscribed to our mailing list. We never sell your data." },
+        storage: { title: "Where your data is stored", body: "Your code stays on your device by default. Cloud sync is opt-in and encrypted both in transit and at rest. Account data is stored on secure servers within the EU." },
+        rights: { title: "Your rights", body: "You have the right to access, correct, or delete your personal data at any time. You can unsubscribe from emails with one click. For any data request, contact us at privacy@alpy.dev." },
+        cookies: { title: "Cookies and tracking", body: "The AlPy app does not use cookies. Our landing page may use anonymous analytics cookies to understand visitor behavior. No personal data is collected through cookies." },
+        changes: { title: "Changes to this policy", body: "We will notify you by email if we make material changes to this policy. Continued use of AlPy after changes constitutes acceptance of the updated policy." },
+        contact: { title: "Contact us", body: "If you have questions about this policy or your data, email us at privacy@alpy.dev. We respond within 48 hours." },
+      },
+    },
     seo: {
       home: { title: "AlPy · Offline Python IDE for Android | Code anywhere", description: "AlPy is the only mobile IDE that protects your productivity. Native Python 3.11 offline with NumPy, Pandas and Matplotlib. Free on Google Play." },
       how: { title: "How AlPy works · From install to first script in 60s", description: "See how AlPy turns your Android into a real Python studio in four steps — no setup, no internet required." },
@@ -513,7 +541,7 @@ export const translations: Record<Lang, Dict> = {
   es: {
     nav: {
       home: "Inicio", how: "Cómo funciona", plans: "Precios", useCases: "Casos de uso",
-      blog: "Blog", contact: "Contacto", cta: "Google Play",
+      community: "Comunidad", faq: "FAQ", blog: "Blog", contact: "Contacto", cta: "Google Play",
       why: "¿Por qué AlPy?", testimonials: "Testimonios", b2b: "B2B", download: "Descargar",
     },
     hero: {
@@ -676,6 +704,20 @@ export const translations: Record<Lang, Dict> = {
       tagline: "Tu estudio de Python.", privacy: "Privacidad",
       nav: "Navegar", resources: "Recursos", company: "Compañía",
       rights: "Todos los derechos reservados.",
+    },
+    privacy: {
+      title: "Política de Privacidad",
+      lastUpdated: "Última actualización: mayo 2026",
+      sections: {
+        who: { title: "Quiénes somos", body: "AlPy ('nosotros', 'nuestra') es un IDE de Python offline para Android. Esta política explica cómo manejamos tu información cuando usas nuestra app y sitio web." },
+        data: { title: "Qué datos recopilamos", body: "Recopilamos datos mínimos por diseño. Tu código, scripts y notebooks nunca salen de tu dispositivo a menos que actives explícitamente el sync en la nube. Si creas una cuenta, almacenamos tu email, idioma preferido y plan activo. También recopilamos datos de uso anónimos (duración de sesión, reportes de crash) que no pueden identificarte personalmente." },
+        purpose: { title: "Para qué usamos tus datos", body: "Usamos tus datos solo para: gestionar tu cuenta y suscripción, mejorar la app mediante análisis de errores y crashes, y enviarte avisos de lanzamiento si te suscribiste a nuestra lista. Nunca vendemos tus datos." },
+        storage: { title: "Dónde se almacenan tus datos", body: "Tu código permanece en tu dispositivo por defecto. El sync en la nube es opt-in y está cifrado tanto en tránsito como en reposo. Los datos de cuenta se almacenan en servidores seguros dentro de la UE." },
+        rights: { title: "Tus derechos", body: "Tienes derecho a acceder, corregir o eliminar tus datos personales en cualquier momento. Puedes darte de baja de los emails con un clic. Para cualquier solicitud de datos, contáctanos en privacy@alpy.dev." },
+        cookies: { title: "Cookies y rastreo", body: "La app AlPy no usa cookies. Nuestra landing page puede usar cookies de análisis anónimo para entender el comportamiento de los visitantes. No se recopilan datos personales a través de cookies." },
+        changes: { title: "Cambios a esta política", body: "Te notificaremos por email si hacemos cambios materiales a esta política. El uso continuado de AlPy después de los cambios constituye la aceptación de la política actualizada." },
+        contact: { title: "Contáctanos", body: "Si tienes preguntas sobre esta política o tus datos, escríbenos a privacy@alpy.dev. Respondemos en menos de 48 horas." },
+      },
     },
     seo: {
       home: { title: "AlPy · IDE de Python offline para Android | Programa donde sea", description: "AlPy es el único IDE móvil que blinda tu productividad. Python 3.11 nativo offline con NumPy, Pandas y Matplotlib. Gratis en Google Play." },

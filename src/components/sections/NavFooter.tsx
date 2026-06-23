@@ -19,7 +19,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
 
-  const sectionIds = ["inicio", "como-funciona", "precios", "casos-de-uso"];
+  const sectionIds = ["inicio", "como-funciona", "precios", "testimonios", "faq", "casos-de-uso", "descargar"];
   const active = useActiveSection(isHome ? sectionIds : []);
 
   const links: LinkItem[] = [
@@ -27,6 +27,8 @@ export const Navbar = () => {
     { kind: "hash", hash: "como-funciona", label: t.nav.how },
     { kind: "hash", hash: "casos-de-uso", label: t.nav.useCases },
     { kind: "hash", hash: "precios", label: t.nav.plans },
+    { kind: "hash", hash: "testimonios", label: t.nav.community },
+    { kind: "hash", hash: "faq", label: t.nav.faq },
     { kind: "route", to: "/blog", label: t.nav.blog },
     { kind: "route", to: "/contacto", label: t.nav.contact },
   ];
@@ -103,24 +105,27 @@ export const Navbar = () => {
               </button>
             ) : (
               <NavLink
-                key={l.to}
-                to={l.to}
-                className={({ isActive }) => linkClass(isActive)}
-              >
-                {({ isActive }) => (
-                  <>
-                    {l.label}
-                    <span
-                      className={cn(
-                        "absolute -bottom-[18px] left-0 right-0 h-px bg-primary transition-all duration-300 ease-in-out",
-                        isActive
-                          ? "opacity-100 scale-x-100"
-                          : "opacity-0 scale-x-0",
-                      )}
-                    />
-                  </>
-                )}
-              </NavLink>
+                  key={l.to}
+                  to={l.to}
+                  className={({ isActive }) => linkClass(isActive || (l.to === "/contacto" && isHashActive("descargar")))}
+                >
+                  {({ isActive }) => {
+                    const routeActive = isActive || (l.to === "/contacto" && active === "descargar");
+                    return (
+                      <>
+                        {l.label}
+                        <span
+                          className={cn(
+                            "absolute -bottom-[18px] left-0 right-0 h-px bg-primary transition-all duration-300 ease-in-out",
+                            routeActive
+                              ? "opacity-100 scale-x-100"
+                              : "opacity-0 scale-x-0",
+                          )}
+                        />
+                      </>
+                    );
+                  }}
+                </NavLink>
             ),
           )}
         </nav>
@@ -323,12 +328,12 @@ export const Footer = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="enlace_real_aquí"
+              <Link
+                to="/privacy"
                 className="hover:text-foreground transition"
               >
                 {t.footer.privacy}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
