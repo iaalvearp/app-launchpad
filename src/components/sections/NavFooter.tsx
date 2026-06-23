@@ -25,8 +25,8 @@ export const Navbar = () => {
   const links: LinkItem[] = [
     { kind: "hash", hash: "inicio", label: t.nav.home },
     { kind: "hash", hash: "como-funciona", label: t.nav.how },
-    { kind: "hash", hash: "precios", label: t.nav.plans },
     { kind: "hash", hash: "casos-de-uso", label: t.nav.useCases },
+    { kind: "hash", hash: "precios", label: t.nav.plans },
     { kind: "route", to: "/blog", label: t.nav.blog },
     { kind: "route", to: "/contacto", label: t.nav.contact },
   ];
